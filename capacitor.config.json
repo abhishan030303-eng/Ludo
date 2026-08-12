@@ -1,6 +1,8 @@
 {
-  "appId": "com.abhiludo.offline",
+  "appId": "com.abhiludo.app",
   "appName": "ABHI LUDO",
   "webDir": ".",
-  "bundledWebRuntime": false
+  "server": {
+    "androidScheme": "https"
+  }
 }
