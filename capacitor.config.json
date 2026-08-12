@@ -1,7 +1,7 @@
 {
   "appId": "com.abhiludo.app",
   "appName": "ABHI LUDO",
-  "webDir": ".",
+  "webDir": "www",
   "server": {
     "androidScheme": "https"
   }
