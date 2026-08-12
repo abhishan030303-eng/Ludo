@@ -1,0 +1,6 @@
+{
+  "appId": "com.abhiludo.offline",
+  "appName": "ABHI LUDO",
+  "webDir": ".",
+  "bundledWebRuntime": false
+}

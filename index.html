@@ -1,124 +1,129 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<meta name="theme-color" content="#06142f">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#06112a">
 <title>ABHI LUDO</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="app">
-<header class="topbar">
-  <div class="profile"><div class="avatar">A</div><div><b>ABHI</b><small>LEVEL <span id="level">1</span></small></div></div>
-  <div class="wallet"><span>💎 <b id="gems">50</b></span><span>🪙 <b id="coins">2550</b></span></div>
-  <button class="icon-btn" id="settingsBtn">⚙️</button>
-</header>
+  <header class="topbar">
+    <button class="icon" id="homeBtn">⌂</button>
+    <div class="brand"><b>ABHI<span>LUDO</span></b><small>OFFLINE CLASSIC</small></div>
+    <div class="wallet"><span>💎 <b id="gems">50</b></span><span>🪙 <b id="coins">2550</b></span></div>
+    <button class="icon" id="settingsBtn">⚙</button>
+  </header>
 
-<main>
-<section id="home" class="screen">
-  <div class="logo"><div class="crown">♛</div><h1>ABHI<span>LUDO</span></h1><p>THE CLASSIC OFFLINE EXPERIENCE</p></div>
-  <div class="hero-board">
-    <div class="hero-piece red"></div><div class="hero-piece green"></div>
-    <div class="hero-piece yellow"></div><div class="hero-piece blue"></div>
-    <div class="hero-dice">⚄</div>
-  </div>
+  <main id="home" class="screen">
+    <section class="hero">
+      <div class="crown">♛</div>
+      <h1>ABHI<span>LUDO</span></h1>
+      <p>THE CLASSIC LUDO EXPERIENCE</p>
+      <div class="mini-board">
+        <div class="mini red"></div><div class="mini green"></div>
+        <div class="mini blue"></div><div class="mini yellow"></div>
+        <div class="mini-dice">⚄</div>
+      </div>
+    </section>
+    <section class="main-grid">
+      <button class="mode-card featured" data-mode="computer">🤖 <b>COMPUTER</b><small>Play against offline AI</small></button>
+      <button class="mode-card" data-mode="local">👥 <b>PASS N PLAY</b><small>2–4 players · one phone</small></button>
+      <button class="mode-card" data-mode="quick">⚡ <b>QUICK GAME</b><small>One token · fast match</small></button>
+      <button class="mode-card" data-mode="local">❤️ <b>FRIENDS</b><small>Local same-device play</small></button>
+    </section>
+    <section class="utility-grid">
+      <button data-panel="tournament">🏆 TOURNAMENT</button>
+      <button data-panel="events">🎁 EVENTS</button>
+      <button data-panel="shop">🛍 SHOP</button>
+      <button data-panel="inventory">🎒 INVENTORY</button>
+      <button data-panel="help">❓ HOW TO PLAY</button>
+    </section>
+  </main>
 
-  <div class="main-grid">
-    <button class="main-card" data-mode="computer"><strong>🤖 COMPUTER</strong><small>Play against AI</small></button>
-    <button class="main-card" data-mode="local"><strong>👥 PASS N PLAY</strong><small>2–4 players · one phone</small></button>
-    <button class="main-card" data-mode="quick"><strong>⚡ QUICK GAME</strong><small>One token · faster match</small></button>
-    <button class="main-card" data-mode="local"><strong>❤️ FRIENDS</strong><small>Local same-device play</small></button>
-  </div>
-
-  <div class="secondary-grid">
-    <button data-panel="tournament">🏆 TOURNAMENT</button>
-    <button data-panel="events">🎁 EVENTS</button>
-    <button data-panel="shop">🛍 SHOP</button>
-    <button data-panel="inventory">🎒 INVENTORY</button>
-    <button data-panel="social">💬 SOCIAL</button>
-    <button data-panel="help">❓ HELP</button>
-  </div>
-</section>
-
-<section id="setup" class="screen hidden">
-  <button class="back-btn" id="backSetup">←</button>
-  <h2>GAME SETUP</h2>
-  <div class="mode-tabs">
-    <button class="mode-tab active" data-type="classic">CLASSIC<small>4 tokens</small></button>
-    <button class="mode-tab" data-type="quick">QUICK<small>1 token</small></button>
-    <button class="mode-tab" data-type="team">TEAM UP<small>2 vs 2</small></button>
-  </div>
-  <h3>PLAYERS</h3>
-  <div class="count-row">
-    <button class="count active" data-count="2">2P</button>
-    <button class="count" data-count="3">3P</button>
-    <button class="count" data-count="4">4P</button>
-  </div>
-  <div id="playerEditor"></div>
-  <button class="primary" id="startGame">START GAME ▶</button>
-</section>
-
-<section id="game" class="screen hidden game-screen">
-  <div class="game-head">
-    <button class="icon-btn" id="exitGame">⌂</button>
-    <div class="turn-box"><small>TURN</small><b id="turnName">RED</b></div>
-    <button class="icon-btn" id="soundBtn">🔊</button>
-  </div>
-
-  <div class="board-wrap">
-    <div id="board" class="board">
-      <div class="zone red-zone"><b>RED</b><div class="yard" id="yard-red"></div></div>
-      <div class="zone green-zone"><b>GREEN</b><div class="yard" id="yard-green"></div></div>
-      <div class="zone yellow-zone"><b>YELLOW</b><div class="yard" id="yard-yellow"></div></div>
-      <div class="zone blue-zone"><b>BLUE</b><div class="yard" id="yard-blue"></div></div>
-      <div id="track"></div><div id="homeLanes"></div>
-      <div class="finish-center"><i class="tri red"></i><i class="tri green"></i><i class="tri yellow"></i><i class="tri blue"></i></div>
-      <div id="tokens"></div>
+  <main id="setup" class="screen hidden">
+    <div class="section-head"><button class="back" id="backSetup">←</button><div><h2>NEW GAME</h2><small>Choose your game</small></div></div>
+    <div class="tabs">
+      <button class="tab active" data-type="classic">CLASSIC<small>4 tokens</small></button>
+      <button class="tab" data-type="quick">QUICK<small>1 token</small></button>
+      <button class="tab" data-type="team">TEAM UP<small>4 players</small></button>
     </div>
-  </div>
+    <div class="counts">
+      <button class="count active" data-count="2">2P</button>
+      <button class="count" data-count="3">3P</button>
+      <button class="count" data-count="4">4P</button>
+    </div>
+    <div class="player-card">
+      <h3>PLAYERS</h3><div id="playerEditor"></div>
+    </div>
+    <button class="primary huge" id="startGame">▶ PLAY NOW</button>
+  </main>
 
-  <div class="game-controls">
-    <button id="dice" class="dice">⚀</button>
-    <button id="roll" class="roll">🎲 ROLL DICE</button>
-    <div id="gameMsg">RED's turn — roll the dice</div>
-  </div>
+  <main id="game" class="screen hidden game-screen">
+    <div class="game-head">
+      <button class="back" id="exitGame">←</button>
+      <div class="turn-box"><small>TURN</small><b id="turnName">RED</b></div>
+      <div class="turn-pill" id="turnPill">●</div>
+    </div>
 
-  <div class="score-row">
-    <div><i class="dot red-dot"></i><small>RED</small><b id="score-red">0/4</b></div>
-    <div><i class="dot green-dot"></i><small>GREEN</small><b id="score-green">0/4</b></div>
-    <div><i class="dot yellow-dot"></i><small>YELLOW</small><b id="score-yellow">0/4</b></div>
-    <div><i class="dot blue-dot"></i><small>BLUE</small><b id="score-blue">0/4</b></div>
-  </div>
-</section>
-</main>
+    <div class="board-wrap">
+      <div class="board" id="board">
+        <div class="zone red-zone"><b>RED</b><div class="yard-spots" id="yard-red"></div></div>
+        <div class="zone green-zone"><b>GREEN</b><div class="yard-spots" id="yard-green"></div></div>
+        <div class="zone blue-zone"><b>BLUE</b><div class="yard-spots" id="yard-blue"></div></div>
+        <div class="zone yellow-zone"><b>YELLOW</b><div class="yard-spots" id="yard-yellow"></div></div>
+        <div id="track"></div><div id="lanes"></div>
+        <div class="center"><i class="tri red"></i><i class="tri green"></i><i class="tri yellow"></i><i class="tri blue"></i></div>
+        <div id="tokens"></div>
+      </div>
+    </div>
 
-<nav class="bottom-nav">
-  <button class="active" data-home>🏠<small>HOME</small></button>
-  <button data-panel="tournament">🏆<small>EVENT</small></button>
-  <button data-panel="inventory">🎒<small>INVENTORY</small></button>
-  <button data-panel="social">💬<small>SOCIAL</small></button>
-</nav>
+    <div class="game-controls">
+      <div class="dice-row">
+        <button class="dice3d" id="dice" aria-label="Dice result" type="button">
+          <span class="dice-cube" id="diceCube">
+            <span class="dice-face front" id="diceFront"></span>
+            <span class="dice-face back"></span>
+            <span class="dice-face right"></span>
+            <span class="dice-face left"></span>
+            <span class="dice-face top"></span>
+            <span class="dice-face bottom"></span>
+          </span>
+          <span class="dice-shadow"></span>
+        </button>
+        <button class="primary roll" id="roll">🎲 ROLL DICE</button>
+      </div>
+      <div id="gameMsg">RED's turn — roll the dice</div>
+    </div>
 
-<div class="modal hidden" id="settingsModal">
+    <div class="scores">
+      <div class="score red"><b>RED</b><strong id="score-red">0/4</strong></div>
+      <div class="score green"><b>GREEN</b><strong id="score-green">0/4</strong></div>
+      <div class="score yellow"><b>YELLOW</b><strong id="score-yellow">0/4</strong></div>
+      <div class="score blue"><b>BLUE</b><strong id="score-blue">0/4</strong></div>
+    </div>
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<div id="settingsModal" class="modal hidden">
   <div class="modal-card">
-    <button class="close" id="closeSettings">×</button>
-    <h2>SETTINGS</h2>
-    <label>Sound <input type="checkbox" id="soundToggle" checked></label>
-    <label>Vibration <input type="checkbox" id="vibrationToggle" checked></label>
+    <button class="close" id="closeSettings">×</button><h2>⚙ SETTINGS</h2>
+    <label>Sound <input id="soundToggle" type="checkbox" checked></label>
+    <label>Vibration <input id="vibrationToggle" type="checkbox" checked></label>
     <button class="danger" id="resetData">RESET LOCAL DATA</button>
   </div>
 </div>
 
-<div class="modal hidden" id="panelModal">
-  <div class="modal-card">
-    <button class="close" id="closePanel">×</button>
-    <div id="panelContent"></div>
-  </div>
+<div id="panelModal" class="modal hidden">
+  <div class="modal-card"><button class="close" id="closePanel">×</button><div id="panelContent"></div></div>
 </div>
-<div id="toast"></div>
-
 <script src="game.js"></script>
-</div>
 </body>
 </html>
